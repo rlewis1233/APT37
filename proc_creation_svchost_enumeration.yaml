@@ -2,7 +2,7 @@ title: Detect svchost.exe Spawning cmd.exe with systeminfo or tasklist
 id: 1d6f9b4d-68a4-4a72-bf7a-9bda7cb7d9e4
 description: Detects instances Konni enumeration commands.
 status: stable
-author: Flashpoint
+author:
 date: 2024-08-26
 tags:
   - attack.t1057
