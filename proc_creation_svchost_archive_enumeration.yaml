@@ -1,0 +1,24 @@
+title: Detect svchost.exe Spawning cmd.exe with makecab
+id: d2e4850e-9ecd-41c9-91f2-7e0d62e11a14 
+description: Detects Konni command to archive collected enumeration data.
+status: stable
+author: Flashpoint
+date: 2024-08-26
+tags:
+  - attack.t1560
+  - attack.collection
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    ParentImage:
+      - '*\svchost.exe'
+    Image:
+      - '*\cmd.exe'
+    CommandLine|contains:
+      - '/c makecab'
+  condition: selection
+falsepositives:
+  - Legitimate administrative scripts which archive data with makecab
+level: low
