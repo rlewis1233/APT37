@@ -1,0 +1,28 @@
+title: RokRAT Cloud API Usage
+id: fe551530-8501-45e0-b86a-f3d92fd86abf 
+status: stable
+description: Detects an executable that isn't dropbox, pcloud, or yandex but communicates with those services
+author: 
+date: 2024-08-26
+tags:
+    - attack.command-and-control
+    - attack.t1102
+logsource:
+    category: network_connection
+    product: windows
+detection:
+    selection:
+        Initiated: 'true'
+        DestinationHostname|endswith:
+            - 'api.pcloud.com' or
+            - 'content.dropboxapi.com' or
+            - 'cloud-api.yandex.net'
+    filter_main_legit_webservice:
+        # Note: It's better to add a specific path to the exact location(s) where dropbox is installed
+        Image|contains: '\Dropbox' or
+        Image|contains: '\Yandex' or
+        Image|contains: '\pcloud'
+    condition: selection and not 1 of filter_main_*
+falsepositives:
+    - Legitimate use of one of these APIs with a tool
+level: low
