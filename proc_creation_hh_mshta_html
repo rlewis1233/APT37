@@ -1,1 +1,26 @@
-
+title: Compiled HTML Help file opened with HH.exe Spawning mshta.exe with HTTP and HTML in Command Line
+id: bd383663-ff13-4a0f-b82b-db4ce5e4dab8 
+description: Detects instances where HH.exe spawns mshta.exe with HTTP URLs and HTML or HTA files in the command line, which may indicate an attempt to execute malicious scripts.
+status: stable
+author: Flashpoint
+date: 2024-08-26
+tags:
+  - attack.t1204
+  - attack.execution
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    Image:
+      - '*\mshta.exe'
+    CommandLine|contains:
+      - 'http'
+      - '.html'
+    ParentImage:
+      - '*\hh.exe'
+  condition: selection
+falsepositives:
+  - Legitimate use of `mshta.exe` from Microsoft compiled HTML file
+  - Custom applications that might use similar patterns for legitimate functions
+level: med
