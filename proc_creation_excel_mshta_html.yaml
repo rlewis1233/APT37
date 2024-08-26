@@ -2,7 +2,7 @@ title: Excel Spawning mshta.exe with HTTP and HTML in Command Line
 id: bdd658f9-25a2-4947-a2e6-c570e8f55adf 
 description: Detects instances where Excel spawns mshta.exe with HTTP URLs and HTML or HTA files in the command line, which may indicate an attempt to execute malicious scripts.
 status: stable
-author: Flashpoint
+author: 
 date: 2024-08-26
 tags:
   - attack.t1204
