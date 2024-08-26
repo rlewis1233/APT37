@@ -1,1 +1,25 @@
+title: Suspicious Execution of MSHTA, CMD, or PowerShell from Internet Explorer
+id: ebad923a-face-4362-a9ab-c76d666a0c28
+description: Detects suspicious execution of MSHTA.exe, cmd.exe, or PowerShell.exe triggered by Internet Explorer, which may indicate a Drive-By Compromise attack or exploitation of CVE-2021-2641.
+status: stable
+author: Flashpoint
+date: 2024-08-26
+tags:
+  - attack.t1189
+  - attack.initial-access
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_img:
+      - '*\mshta.exe'
+      - '*\cmd.exe'
+      - '*\powershell.exe'
+    ParentImage:
+      - '*\iexplore.exe'
+  condition: selection
+falsepositives:
+  - Legitimate use cases involving administrative tasks or scripting
+  - Custom enterprise applications that use these processes legitimately
+level: Med
 
