@@ -2,7 +2,7 @@ title: Batch File Spawning sc.exe with set DSP_NAME in Command Line
 id: d6f25319-8908-4acd-882a-0985036e2959 
 description: Detects instances where `cmd.exe` runs a `.bat` file that creates a service with a specific display name.
 status: stable
-author: Flashpoint
+author: 
 date: 2024-08-26
 tags:
   - attack.t1569
