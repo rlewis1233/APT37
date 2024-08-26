@@ -6,7 +6,7 @@ author: Flashpoint
 date: 2024-08-26
 tags:
   - attack.t1204
-  - attack.execution_command
+  - attack.execution
 logsource:
   category: process_creation
   product: windows
