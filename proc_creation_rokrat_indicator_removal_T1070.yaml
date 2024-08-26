@@ -2,7 +2,7 @@ title: Detect Deletion of .vbs and .lnk Files from Startup Folder
 id: 8e5ae2dd-e90a-4e43-b6c1-87989b733f78 
 description: Detects RokRAT use of `del` command to delete `.vbs` or `.lnk` files from the startup folder.
 status: stable
-author: Flashpoint
+author: 
 date: 2024-08-26
 tags:
   - attack.t1070
