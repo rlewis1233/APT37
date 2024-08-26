@@ -2,7 +2,7 @@ title: Suspicious .SCR File Opening Happy.jpg from Temp Directory
 id: f53ebbd7-f8c9-48b6-85da-ab98964cb81d 
 description: Detects instances where a .scr file (screensaver executable) opens `Happy.jpg` from the Temp directory.
 status: stable
-author: Flashpoint
+author:
 date: 2024-08-26
 tags:
   - attack.t1204
