@@ -11,7 +11,8 @@ logsource:
   category: process_creation
   product: windows
 detection:
-  selection_img:
+  selection:
+    Image:
       - '*\mshta.exe'
       - '*\cmd.exe'
       - '*\powershell.exe'
