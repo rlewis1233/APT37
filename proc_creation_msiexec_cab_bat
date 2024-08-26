@@ -1,1 +1,26 @@
+title: msiexec.exe Spawning cmd.exe with .bat and .cab in Command Line
+id: a272576f-7b1d-47e6-9017-6c4bf756849c 
+description: Detects instances where `msiexec.exe` spawns `cmd.exe` with `.bat` and `.cab` files in the command line, which may indicate malicious file creations by trojanized installer.
+status: stable
+author: Flashpoint
+date: 2024-08-26
+tags:
+  - attack.execution
+  - attack.t1204
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    ParentImage:
+      - '*\msiexec.exe'
+    Image:
+      - '*\cmd.exe'
+    CommandLine|contains:
+      - '.bat'
+      - '.cab'
+  condition: selection
+falsepositives:
+  - Legitimate use of `msiexec.exe` for installation processes involving `.bat` or `.cab` files
+level: high
 
