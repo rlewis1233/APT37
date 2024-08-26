@@ -1,1 +1,27 @@
+title: APT37 Registry Run Key Addition
+id: c73b6b65-3845-4b64-84e1-364d3df35b2c 
+description: Detects the addition of a registry Run key with names like `Windows Update`, `rundll32`, `RTHDVCP`, or `RTHDVCPE`, which could indicate an attempt to establish persistence or execute malicious payloads.
+status: stable
+author: Flashpoint
+date: 2024-08-26
+tags:
+  - attack.t1547.001
+  - attack.persistence
+logsource:
+  category: registry
+  product: windows
+detection:
+  selection:
+    RegistryKey:
+      - 'HKCU\Software\Microsoft\Windows\CurrentVersion\Run'
+      - 'HKLM\Software\Microsoft\Windows\CurrentVersion\Run'
+    RegistryValueName:
+      - 'Windows Update'
+      - 'rundll32'
+      - 'RTHDVCP'
+      - 'RTHDVCPE'
+  condition: selection
+falsepositives:
+  - Legitimate applications or system updates that use these names for legitimate purposes
+level: high
 
