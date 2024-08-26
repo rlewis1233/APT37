@@ -1,0 +1,26 @@
+title: LNK File Spawning CMD.exe with File Operation System Calls
+id: fefcee9d-4e74-4622-bda2-e92cdabfd29a
+description: Detects scenarios where a .lnk file spawns cmd.exe, and cmd.exe involves .NET file operations such as System.IO.FileStream, System.IO.FileAccess, or System.IO.FileMode.
+status: stable
+author: Flashpoint
+date: 2024-08-26
+tags:
+  - attack.t1204
+  - attack.execution_command
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    ParentImage:
+      - '*\.lnk'
+    Image:
+      - '*\cmd.exe'
+    CommandLine|contains:
+      - 'System.IO.FileStream'
+      - 'System.IO.FileAccess'
+      - 'System.IO.FileMode'
+  condition: selection
+falsepositives:
+  - Legitimate use of .lnk files and cmd.exe for administrative tasks
+level: high
