@@ -2,7 +2,7 @@ title: Suspicious Executable Spawning Rundll32.exe with MFAdata in Command Line
 id: bed1465e-cfce-426b-ae90-e70b3e3e5e58
 description: Detects when an executable process spawns `rundll32.exe` with "MFAdata" in the command line, which may indicate unusual or malicious activity.
 status: stable
-author: Flashpoint
+author: 
 date: 2024-08-26
 tags:
   - attack.t1204
