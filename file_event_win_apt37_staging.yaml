@@ -1,7 +1,7 @@
 title: Detect APT37 Staging File Creation
 id: 9cc4f416-b9d5-4c07-b5f9-70469e3e9a45 
 description: Detects file creation events in directories `\Microsoft Updatea\` or `\Microsoft\Windows\Start Menu\Programs\Startup\out.txt.`
-author: Flashpoint
+author:
 date: 2024-08-26
 tags:
   - attack.t1074
