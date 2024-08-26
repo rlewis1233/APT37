@@ -2,7 +2,7 @@ title: Detect PowerShell with -windowstyle hidden and Payload retrieval
 id: bab87162-e9ca-4b73-8872-4ff95136a5cf 
 description: Detects PowerShell with `-windowstyle hidden` and use `New-Object System.Net.WebClient`.
 status: stable
-author: Flashpoint
+author: 
 date: 2024-08-26
 tags:
   - attack.t1564.003
